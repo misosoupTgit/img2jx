@@ -1,0 +1,22 @@
+img2jx 0.1.0
+Copyright (c) img2jx contributors
+Licensed under MIT
+
+--- Third-party licenses ---
+
+{{#each overview}}
+{{name}} ({{count}})
+{{/each}}
+
+{{#each licenses}}
+================================================================================
+{{name}}
+--------------------------------------------------------------------------------
+Used by:
+{{#each used_by}}
+  - {{crate.name}} {{crate.version}}
+{{/each}}
+
+{{text}}
+
+{{/each}}
