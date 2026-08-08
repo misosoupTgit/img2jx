@@ -56,7 +56,10 @@ jobs:
       - name: Setup MinGW
         if: matrix.mingw
         run: |
-          echo "CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER=C:\msys64\mingw64\bin\gcc.exe" >> $env:GITHUB_ENV
+          choco install mingw -y
+          $mingw = "C:\ProgramData\chocolatey\lib\mingw\tools\install\mingw64\bin"
+          echo "CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER=x86_64-w64-mingw32-gcc" >> $env:GITHUB_ENV
+          echo "$mingw" >> $env:GITHUB_PATH
 
       - name: Install cross
         if: matrix.cross
